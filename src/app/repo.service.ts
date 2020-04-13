@@ -26,4 +26,16 @@ export class RepoService {
           catchError(err => throwError(err))
         )
   }
+
+  /**
+   * Returns a repository's issues based on the selected repo from the search table.
+   *
+   * @param { string } selectedRepoName
+   */
+  public getSelectedRepoIssues(selectedRepoName: string): Observable<any> {
+    return this.httpClient.get(`https://api.github.com/repos/${selectedRepoName}/issues?state=all`)
+      .pipe(
+        catchError(err => throwError(err))
+      )
+}
 }

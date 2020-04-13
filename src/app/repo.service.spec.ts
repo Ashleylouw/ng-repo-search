@@ -34,6 +34,15 @@ describe('RepoService', () => {
       const req = httpMock.expectOne('https://api.github.com/search/repositories?q=test');
       expect(req.request.method).toBe('GET');
       req.flush({});
-  });
+    });
+    xit('should get repositories based on search term', (done) => {
+      service.getRepo('test').subscribe(
+          () => done(),
+          error => fail(`Failed to retrieve repositories. Error: ${error}`)
+      );
+      const req = httpMock.expectOne('https://api.github.com/search/repositories?q=test');
+      expect(req.request.method).toBe('GET');
+      req.flush({});
+    });
   })
 });

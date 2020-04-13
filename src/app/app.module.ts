@@ -17,17 +17,24 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { RepoService } from './repo.service';
 import { HttpClientModule } from '@angular/common/http';
+import { TableComponent } from './shared/components/table/table.component';
+import { IssuesComponent } from './issues/issues.component';
+import { StatsComponent } from './stats/stats.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
-    SearchComponent
+    SearchComponent,
+    TableComponent,
+    IssuesComponent,
+    StatsComponent
   ],
   imports: [
-  BrowserModule,
+BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
@@ -41,6 +48,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatPaginatorModule,
     MatInputModule,
+    MatProgressBarModule,
     HttpClientModule
   ],
   providers: [RepoService],
