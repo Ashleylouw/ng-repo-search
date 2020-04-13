@@ -1,11 +1,14 @@
 <div class="search-container">
   <div class="search-heading">
     <h2>Search gihub for repository:</h2>
+  </div>
+  <form [formGroup]="searchForm" class="actions">
     <mat-form-field class="search-input">
       <mat-label>Search Term</mat-label>
-      <input matInput placeholder="Search repository...">
+      <input matInput placeholder="Ex. bootstrap" formControlName="searchTerm">
     </mat-form-field>
-  </div>
+    <button mat-raised-button color="primary" (click)="startSearch()">Search</button>
+  </form>
   
   <app-table [tableColumns]="displayedColumns" [tableData]="dataSource"></app-table>
 </div>

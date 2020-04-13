@@ -6,13 +6,14 @@
   .search-heading {
     display: flex;
     justify-content: center;
+  }
 
-    h2 {
-      flex-grow: 2;
-    }
-
+  .actions {
+    text-align: center;
+    
     .search-input {
-      flex-grow: 8;
+      width: 50%;
+      margin: 5px;
     }
   }
 }

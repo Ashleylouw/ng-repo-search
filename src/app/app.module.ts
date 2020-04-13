@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TableComponent } from './shared/components/table/table.component';
 import { IssuesComponent } from './issues/issues.component';
 import { StatsComponent } from './stats/stats.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { StatsComponent } from './stats/stats.component';
     StatsComponent
   ],
   imports: [
-BrowserModule,
+    ReactiveFormsModule,
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
