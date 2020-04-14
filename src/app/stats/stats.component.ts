@@ -6,15 +6,42 @@ import * as Chart from 'chart.js';
   templateUrl: './stats.component.html',
   styleUrls: ['./stats.component.scss']
 })
-export class StatsComponent {
-  title = 'Repo stats';
+export class StatsComponent implements OnInit {
+  /**
+   * The selected repository name.
+   *
+   * @type { string }
+   */
+  repoName: string = '';
+
+  /**
+   * Stores the canvas element.
+   *
+   * @type { any }
+   */
   canvas: any;
+
+  /**
+   * Stores the canvas context.
+   *
+   * @type { any }
+   */
   ctx: any;
+
+  /**
+   * Gets the repository name from locaStorage.
+   */
+  ngOnInit(): void {
+    if (JSON.parse(localStorage.getItem('selectedRow'))) {
+      let storedRow = JSON.parse(localStorage.getItem('selectedRow'));
+      this.repoName = storedRow['data'].full_name;
+    }
+  }
   
   /**
    * Renders the chart.
    */
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.canvas = document.getElementById('myChart');
     this.ctx = this.canvas.getContext('2d');
     let openIssues = JSON.parse(localStorage.getItem('openIssues'));
@@ -39,5 +66,4 @@ export class StatsComponent {
       }
     });
   }
-
 }

@@ -1,0 +1,14 @@
+.details-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  .details-heading {
+    display: flex;
+    justify-content: center;
+
+    span {
+      color: #c2185b;
+    }
+  }
+}

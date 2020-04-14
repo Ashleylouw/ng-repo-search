@@ -21,7 +21,7 @@ export class RepoService {
    * @param { string } searchTerm
    */
   public getRepo(searchTerm: string): Observable<any> {
-      return this.httpClient.get(`https://api.github.com/search/repositories?q=${searchTerm}`)
+      return this.httpClient.get(`https://api.github.com/search/repositories?q=${searchTerm}&per_page=100`)
         .pipe(
           catchError(err => throwError(err))
         )
@@ -33,7 +33,7 @@ export class RepoService {
    * @param { string } selectedRepoName
    */
   public getSelectedRepoIssues(selectedRepoName: string): Observable<any> {
-    return this.httpClient.get(`https://api.github.com/repos/${selectedRepoName}/issues?state=all`)
+    return this.httpClient.get(`https://api.github.com/repos/${selectedRepoName}/issues?state=all&per_page=100`)
       .pipe(
         catchError(err => throwError(err))
       )

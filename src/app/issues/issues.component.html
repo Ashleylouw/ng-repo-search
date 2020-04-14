@@ -1,5 +1,7 @@
 <div class="issues-container">
-    <p>Issues related to the selected Repository</p>
+    <div class="issues-heading">
+        <h2>Top 100 Issues related to the selected Repository <span>{{repoName}}</span></h2>
+    </div>
 
     <app-table [tableColumns]="displayedColumns" [tableData]="dataSource"></app-table>
 </div>

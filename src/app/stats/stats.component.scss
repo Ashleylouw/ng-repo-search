@@ -2,4 +2,19 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
+
+    .stats-heading {
+      display: flex;
+      justify-content: center;
+
+      span {
+        color: #c2185b;
+      }
+    }
+
+    canvas {
+      display: flex;
+      margin-top: 50px;
+      align-self: center;
+    }
   }
