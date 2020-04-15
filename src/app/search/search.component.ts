@@ -52,7 +52,8 @@ export class SearchComponent implements OnInit {
   /**
    * Constructor.
    *
-   * @param { RepoService } repoService 
+   * @param { RepoService } repoService
+   * @param { MatSnackBar } snackBar
    */
   constructor(private repoService: RepoService, private snackBar: MatSnackBar) { }
 

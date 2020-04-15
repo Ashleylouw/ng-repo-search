@@ -47,7 +47,8 @@ export class IssuesComponent implements OnInit {
   /**
    * Constructor.
    *
-   * @param { RepoService } repoService 
+   * @param { RepoService } repoService
+   * @param { MatSnackBar } snackBar
    */
   constructor(private repoService: RepoService, private snackBar: MatSnackBar) {
     // Assign the data to the data source for the table to render

@@ -19,6 +19,7 @@ export class DetailsComponent {
    * Constructor.
    *
    * @param { any } data
+   * @param { MatDialog } dialogRef
    */
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialog) {
     // Assign the data to the data source for the table to render
@@ -35,5 +36,4 @@ export class DetailsComponent {
       this.repoName = this.data.full_name;
     }
   }
-
 }
