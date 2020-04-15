@@ -4,7 +4,6 @@
         <input matInput (keyup)="applyFilter($event)" placeholder="Ex. boot">
       </mat-form-field>
     
-      <div class="">
         <mat-progress-bar  mode="buffer" *ngIf="!loaded"></mat-progress-bar>
         <table *ngIf="loaded" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     
@@ -38,5 +37,4 @@
         </table>
     
         <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
-      </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-details',
@@ -20,7 +20,7 @@ export class DetailsComponent {
    *
    * @param { any } data
    */
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialog) {
     // Assign the data to the data source for the table to render
     // this.dataSource = new MatTableDataSource(users);
    }

@@ -5,28 +5,29 @@
 
   <div class="repo-details">
     <div>
-      <strong>Description:</strong>
-      <p>{{data.description}}</p>
+      <strong><mat-icon aria-hidden="false" aria-label="Search icon">description</mat-icon>Description:</strong>
+      <span>{{data.description}}</span>
     </div>
     <div>
-      <strong>Date Created:</strong>
-      <p>{{data.created_at | date}}</p>
+      <strong><mat-icon aria-hidden="false" aria-label="Search icon">date_range</mat-icon>Date Created:</strong>
+      <span>{{data.created_at | date}}</span>
     </div>
     <div>
-      <strong>Stars:</strong>
-      <p>{{data.stargazers_count}}</p>
+      <strong><mat-icon aria-hidden="false" aria-label="Search icon">star</mat-icon>Stars:</strong>
+      <span>{{data.stargazers_count}}</span>
     </div>
     <div>
-      <strong>Forks:</strong>
-      <p>{{data.forks}}</p>
+      <strong><mat-icon aria-hidden="false" aria-label="Search icon">call_split</mat-icon>Forks:</strong>
+      <span>{{data.forks}}</span>
     </div>
     <div>
-      <strong>Watchers:</strong>
-      <p>{{data.watchers}}</p>
+      <strong><mat-icon aria-hidden="false" aria-label="Search icon">visibility</mat-icon>Watchers:</strong>
+      <span>{{data.watchers}}</span>
     </div>
     <div>
-      <strong>Total Open Issues:</strong>
-      <p>{{data.open_issues}}</p>
+      <strong><mat-icon aria-hidden="false" aria-label="Search icon">disc_full</mat-icon>Total Open Issues:</strong>
+      <span>{{data.open_issues}}</span>
     </div>
   </div>
+  <button mat-raised-button color="primary" (click)="dialogRef.closeAll()">Close</button>
 </div>

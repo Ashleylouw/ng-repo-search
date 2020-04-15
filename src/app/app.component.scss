@@ -13,9 +13,8 @@
     }
   }
 
-  mat-sidenav-container {
-    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
-       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
-    flex: 1;
+  .side-nav-container {
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.5);
   }
 }

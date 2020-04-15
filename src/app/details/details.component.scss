@@ -7,8 +7,24 @@
     display: flex;
     justify-content: center;
 
-    span, p {
+    span {
       color: #c2185b;
+    }
+  }
+
+  .repo-details {
+    display: flex;
+    flex-direction: column;
+
+    div {
+      padding: 5px;
+
+      strong {
+        mat-icon {
+          margin: 5px;
+          color: #c2185b;
+        }
+      }
     }
   }
 }

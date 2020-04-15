@@ -80,6 +80,11 @@ export class TableComponent implements OnChanges {
   @Input()
   private tableData: any;
 
+  /**
+   * Constructor.
+   *
+   * @param { MatDialog } dialog 
+   */
   constructor(private dialog: MatDialog) {}
 
   /**
@@ -150,7 +155,7 @@ export class TableComponent implements OnChanges {
    */
   openDetailsDialog(): void {
     this.dialog.open(DetailsComponent, {
-      height: '400px',
+      height: '500px',
       width: '600px',
       data: this.selection.selected[0]
     });
