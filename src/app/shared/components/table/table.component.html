@@ -5,11 +5,11 @@
       </mat-form-field>
     
       <div class="">
-        <mat-progress-bar  mode="indeterminate" *ngIf="!loaded"></mat-progress-bar>
-        <table *ngIf="loaded" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        <mat-progress-bar  mode="buffer" *ngIf="!loaded"></mat-progress-bar>
+        <table *ngIf="loaded" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     
           <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            <th mat-header-cell *matHeaderCellDef>
               <mat-checkbox *ngIf="column === 'select'"
                             [checked]="selection.hasValue()"
                             [disabled]="true"

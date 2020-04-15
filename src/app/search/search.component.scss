@@ -3,7 +3,7 @@
   flex-direction: column;
   padding: 20px;
 
-  .search-heading {
+  .heading {
     display: flex;
     justify-content: center;
   }
@@ -14,6 +14,18 @@
     .search-input {
       width: 50%;
       margin: 5px;
+    }
+  }
+
+  .no-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0;
+    color: #c2185b;
+
+    span {
+      margin: 10px;
     }
   }
 }

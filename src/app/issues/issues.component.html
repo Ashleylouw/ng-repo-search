@@ -1,7 +1,14 @@
 <div class="issues-container">
-    <div class="issues-heading">
+    <div class="heading">
         <h2>Top 100 Issues related to the selected Repository <span>{{repoName}}</span></h2>
     </div>
 
-    <app-table [tableColumns]="displayedColumns" [tableData]="dataSource"></app-table>
+    <div class="no-data" *ngIf="repoName === ''">
+        <mat-icon aria-hidden="false" aria-label="no data warning">warning</mat-icon>
+        <span>Please search and select a repository to view details for.</span>
+    </div>
+      
+    <div *ngIf="repoName !== ''">
+        <app-table [tableColumns]="displayedColumns" [tableData]="dataSource"></app-table>
+    </div>
 </div>

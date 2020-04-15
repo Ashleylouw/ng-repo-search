@@ -3,11 +3,11 @@
   flex-direction: column;
   padding: 20px;
 
-  .details-heading {
+  .heading {
     display: flex;
     justify-content: center;
 
-    span {
+    span, p {
       color: #c2185b;
     }
   }

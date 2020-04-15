@@ -17,6 +17,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { RepoService } from './shared/services/repo.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,6 +27,7 @@ import { TableComponent } from './shared/components/table/table.component';
 import { IssuesComponent } from './issues/issues.component';
 import { StatsComponent } from './stats/stats.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SnackbarComponent } from './shared/components/snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SearchComponent,
     TableComponent,
     IssuesComponent,
-    StatsComponent
+    StatsComponent,
+    SnackbarComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -55,9 +58,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatProgressBarModule,
     MatDialogModule,
     MatCheckboxModule,
+    MatSnackBarModule,
     HttpClientModule
   ],
-  providers: [RepoService],
+  providers: [RepoService, SnackbarComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

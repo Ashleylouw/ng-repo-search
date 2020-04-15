@@ -2,6 +2,8 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { RepoService } from '../shared/services/repo.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { SnackbarComponent } from '../shared/components/snackbar/snackbar.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface RepoData {
   full_name: string;
@@ -52,9 +54,10 @@ export class SearchComponent implements OnInit {
    *
    * @param { RepoService } repoService 
    */
-  constructor(private repoService: RepoService) { }
+  constructor(private repoService: RepoService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+    this.searchClicked = false;
     if (localStorage.getItem('searchTerm')) {
       this.searchForm.controls.searchTerm.setValue(localStorage.getItem('searchTerm'));
       this.startSearch();
@@ -73,7 +76,13 @@ export class SearchComponent implements OnInit {
       let searchResults = await this.repoService.getRepo(this.searchForm.controls.searchTerm.value).toPromise();
       this.dataSource = new MatTableDataSource(searchResults.items);
     } catch(err) {
-      console.log(err);
+      this.snackBar.openFromComponent(SnackbarComponent, {
+        duration: 5000,
+        data: {
+          error: err.statusText,
+          message: err.message
+        }
+      });
     }
   }
 }

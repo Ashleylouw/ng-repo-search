@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { RepoService } from '../shared/services/repo.service';
+import { SnackbarComponent } from '../shared/components/snackbar/snackbar.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 /**
  * Repository issues interface.
@@ -47,7 +49,7 @@ export class IssuesComponent implements OnInit {
    *
    * @param { RepoService } repoService 
    */
-  constructor(private repoService: RepoService) {
+  constructor(private repoService: RepoService, private snackBar: MatSnackBar) {
     // Assign the data to the data source for the table to render
     // this.dataSource = new MatTableDataSource(users);
    }
@@ -70,7 +72,13 @@ export class IssuesComponent implements OnInit {
       localStorage.setItem('openIssues', JSON.stringify(openIssues.length));
       localStorage.setItem('closedIssues', JSON.stringify(closedIssues.length));
     } catch(err) {
-      console.log(err);
+      this.snackBar.openFromComponent(SnackbarComponent, {
+        duration: 5000,
+        data: {
+          error: err.statusText,
+          message: err.message
+        }
+      });
     }
   }
 }

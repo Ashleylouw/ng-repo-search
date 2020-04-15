@@ -1,0 +1,15 @@
+.snackbar-container {
+    display: flex;
+    flex-direction: column;
+    
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  
+        span {
+            margin: 5px;
+            color: #c2185b;
+        }
+    }
+}

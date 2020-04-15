@@ -1,7 +1,14 @@
 <div class="stats-container">
-    <div class="stats-heading">
+    <div class="heading">
         <h2>Stats for the top 100 issues in the repository <span color="primary">{{repoName}}</span></h2>
     </div>
 
-    <canvas id="myChart" width="700" height="400"></canvas>
+    <div class="no-data" *ngIf="repoName === ''">
+        <mat-icon aria-hidden="false" aria-label="no data warning">warning</mat-icon>
+        <span>Please search and select a repository to view details for.</span>
+    </div>
+      
+    <div class="chart" *ngIf="repoName !== ''">
+        <canvas id="myChart" width="700" height="400"></canvas>
+    </div>
 </div>
