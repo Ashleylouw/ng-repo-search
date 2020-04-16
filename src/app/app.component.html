@@ -1,7 +1,7 @@
 <div class="app-container">
-  <mat-toolbar color="primary" class="example-toolbar">
+  <mat-toolbar color="primary">
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <h1 class="example-app-name">Repository Search</h1>
+    <h1 class="app-name">Repository Search</h1>
   </mat-toolbar>
 
   <mat-drawer-container class="side-nav-container" autosize>
@@ -13,7 +13,7 @@
       </mat-nav-list>
     </mat-drawer>
   
-    <div class="example-sidenav-content">
+    <div>
       <router-outlet></router-outlet>
     </div>
   
