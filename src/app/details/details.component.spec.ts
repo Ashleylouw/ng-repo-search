@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { DetailsComponent } from './details.component';
 
 describe('DetailsComponent', () => {
@@ -8,7 +8,9 @@ describe('DetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [],
+      imports: [
+        MatDialogModule
+      ],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: {selectedPortal: {}} },
       ],
@@ -26,4 +28,7 @@ describe('DetailsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should get repo name on Init', () => {
+      
+  })
 });

@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SearchComponent } from './search.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RepoService } from '../shared/services/repo.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -12,7 +13,8 @@ describe('SearchComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ SearchComponent ],
       imports: [
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        MatSnackBarModule
       ],
       providers: [
         RepoService,

@@ -9,10 +9,6 @@
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="startSearch()" [disabled]="searchForm.controls.searchTerm.value.length === 0">Search</button>
   </form>
-  <div class="no-data" *ngIf="(searchForm.controls.searchTerm.value.length === 0 && !searchClicked) || !searchClicked">
-    <mat-icon aria-hidden="false" aria-label="no data warning">warning</mat-icon>
-    <span>Unable to display data at this point.</span>
-  </div>
   
   <div *ngIf="(searchForm.controls.searchTerm.value.length !== 0 && searchClicked) || searchClicked">
     <app-table [tableColumns]="displayedColumns" [tableData]="dataSource"></app-table>

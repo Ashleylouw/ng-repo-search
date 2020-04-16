@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { IssuesComponent } from './issues.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 describe('IssuesComponent', () => {
   let component: IssuesComponent;
@@ -9,6 +10,7 @@ describe('IssuesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        MatSnackBarModule,
         HttpClientTestingModule
       ],
       declarations: [ IssuesComponent ]
