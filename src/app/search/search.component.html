@@ -10,7 +10,7 @@
     <button mat-raised-button color="primary" (click)="startSearch()" [disabled]="searchForm.controls.searchTerm.value.length === 0">Search</button>
   </form>
   
-  <div *ngIf="(searchForm.controls.searchTerm.value.length !== 0 && searchClicked) || searchClicked">
+  <div class="table-wrapper" *ngIf="(searchForm.controls.searchTerm.value.length !== 0 && searchClicked) || searchClicked">
     <app-table [tableColumns]="displayedColumns" [tableData]="dataSource"></app-table>
   </div>
 </div>

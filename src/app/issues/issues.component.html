@@ -8,7 +8,7 @@
         <span>Please search and select a repository to view details for.</span>
     </div>
       
-    <div *ngIf="repoName !== ''">
+    <div class="table-wrapper" *ngIf="repoName !== ''">
         <app-table [tableColumns]="displayedColumns" [tableData]="dataSource"></app-table>
     </div>
 </div>
