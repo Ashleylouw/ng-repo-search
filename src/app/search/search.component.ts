@@ -6,8 +6,8 @@ import { SnackbarComponent } from '../shared/components/snackbar/snackbar.compon
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface RepoData {
+  id: number;
   full_name: string;
-  description: string;
   actions: string;
 }
 
@@ -34,6 +34,11 @@ export class SearchComponent implements OnInit {
    * @type { boolean }
    */
   searchClicked: boolean = false;
+
+  /**
+   * Should keep track of search.
+   */
+  searching: boolean = false;
 
   /**
    * Columns to display in table compopnent.
@@ -74,8 +79,10 @@ export class SearchComponent implements OnInit {
     this.searchClicked = true;
     localStorage.setItem('searchTerm', this.searchForm.controls.searchTerm.value);
     try {
+      this.searching = true;
       let searchResults = await this.repoService.getRepo(this.searchForm.controls.searchTerm.value).toPromise();
       this.dataSource = new MatTableDataSource(searchResults.items);
+      this.searching = false;
     } catch(err) {
       this.snackBar.openFromComponent(SnackbarComponent, {
         duration: 5000,

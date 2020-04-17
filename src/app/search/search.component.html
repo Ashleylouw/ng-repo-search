@@ -11,6 +11,6 @@
   </form>
   
   <div class="table-wrapper" *ngIf="(searchForm.controls.searchTerm.value.length !== 0 && searchClicked) || searchClicked">
-    <app-table [tableColumns]="displayedColumns" [tableData]="dataSource"></app-table>
+    <app-table [tableColumns]="displayedColumns" [tableData]="dataSource" [searching]="searching"></app-table>
   </div>
 </div>

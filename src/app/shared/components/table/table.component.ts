@@ -1,4 +1,4 @@
-import { Component, OnChanges, ViewChild, Input, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, ViewChild, Input, SimpleChanges, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -13,7 +13,7 @@ import { DetailsComponent } from 'src/app/details/details.component';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnChanges {
+export class TableComponent implements OnInit {
   /**
    * Keeps track of the mat-table data loaded state.
    *
@@ -54,7 +54,7 @@ export class TableComponent implements OnChanges {
    *
    * @type { SelectionModel<RepoData> }
    */
-  selection = new SelectionModel<RepoData>(true, []);
+  selection = new SelectionModel<RepoData | RepoIssues>(true, []);
 
   /**
    * Input receives true or false based on if search is clicked.
@@ -70,7 +70,7 @@ export class TableComponent implements OnChanges {
    * @type { string[] }
    */
   @Input()
-  private tableColumns: string[];
+  tableColumns: string[];
 
   /**
    * Input receives the data source for mat-table.
@@ -78,14 +78,33 @@ export class TableComponent implements OnChanges {
    * @type { any }
    */
   @Input()
-  private tableData: any;
+  tableData: any;
+
+  /**
+   * Determines if the search is busy.
+   *
+   * @type { any }
+   */
+  @Input()
+  searching: boolean;
 
   /**
    * Constructor.
    *
    * @param { MatDialog } dialog 
    */
-  constructor(private dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) {}
+
+  /**
+   * On Init the table coloums and table data gets set if any.
+   */
+  ngOnInit(): void {
+    this.displayedColumns = this.tableColumns;
+    this.dataSource = new MatTableDataSource(this.tableData);
+    if(this.dataSource.data.length > 0) {
+      this.loaded = true;
+    }
+  }
 
   /**
    * OnChanges hook that sets the mat-table source and column data.
